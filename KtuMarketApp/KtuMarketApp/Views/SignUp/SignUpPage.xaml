@@ -2,14 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.Views.SignUp.SignUpPage">
+
     <ContentPage.Content>
-        <StackLayout>
 
-            <Label Text="Kayıt Ol"></Label>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
 
-            
-            
-            
-        </StackLayout>
+                <!-- SignUp Form -->
+                <Image x:Name="resultImage" BackgroundColor="Pink" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"></Image>
+                <Label x:Name="photopathtext"></Label>
+                
+                <Label Text="Kullanıcı Adı" HorizontalOptions="Center"></Label>
+                <Entry Placeholder="Kullanıcı Adı Giriniz" x:Name="username"></Entry>
+
+                <Label Text="Şifre" HorizontalOptions="CenterAndExpand"></Label>
+                <Entry Placeholder="Kullanıcı Adı Giriniz" IsPassword="True" x:Name="password"></Entry>
+
+
+                <Button Text="Kaynaktan Resim Al" Clicked="GetPictureFromSource"></Button>
+                <Button Text="Resim Çek" Clicked="TakePictureFromCamera"></Button>
+
+                <Button Text="KAYIT OL" CornerRadius="25" Clicked="SignUpActionClicked"></Button>
+
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
