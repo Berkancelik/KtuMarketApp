@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KtuMarketApp.Android", "KtuMarketApp\KtuMarketApp.Android\KtuMarketApp.Android.csproj", "{8EB7D274-34FC-4B38-BFF4-D580C740E209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KtuMarketApp", "KtuMarketApp\KtuMarketApp\KtuMarketApp.csproj", "{982610D1-4367-42B9-87FB-F8317645FF72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EB7D274-34FC-4B38-BFF4-D580C740E209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB7D274-34FC-4B38-BFF4-D580C740E209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB7D274-34FC-4B38-BFF4-D580C740E209}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8EB7D274-34FC-4B38-BFF4-D580C740E209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB7D274-34FC-4B38-BFF4-D580C740E209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB7D274-34FC-4B38-BFF4-D580C740E209}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{982610D1-4367-42B9-87FB-F8317645FF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982610D1-4367-42B9-87FB-F8317645FF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982610D1-4367-42B9-87FB-F8317645FF72}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{982610D1-4367-42B9-87FB-F8317645FF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982610D1-4367-42B9-87FB-F8317645FF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982610D1-4367-42B9-87FB-F8317645FF72}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCF5B6A9-5228-4ECA-9430-5579414F6D78}
+	EndGlobalSection
+EndGlobal
