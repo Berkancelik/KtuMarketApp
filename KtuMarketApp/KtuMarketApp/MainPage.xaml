@@ -3,22 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Grid RowSpacing="30" BackgroundColor="Aqua" VerticalOptions="CenterAndExpand" Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!-- Logo -->
+            <StackLayout BackgroundColor="Bisque" Grid.ColumnSpan="2">
+                <Image Source="https://www.ktu.edu.tr/images/KTU-Logo-3A.png"></Image>
+            </StackLayout>
+
+            <!-- Login Form -->
+            <StackLayout Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2" BackgroundColor="DarkSeaGreen">
+                <Label Text="Kullanıcı Adı" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Title"></Label>
+                <Entry BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
+
+                <Label Text="Şifre" HorizontalOptions="Center"  FontAttributes="Bold" FontSize="Title"></Label>
+                <Entry BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
+
+                <!-- Buttons -->
+                <StackLayout>
+                    <Button Text="Giriş Yap" CornerRadius="25"></Button>
+                    <Button Text="Kayıt Ol" CornerRadius="25" Clicked="GoToSignUp"></Button>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Promotion Pages -->
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <Button Text="Tanıtım Sayfaları" CornerRadius="25" Clicked="GoToPromotions"></Button>
+            </StackLayout>
+        </Grid>
+
     </StackLayout>
 
 </ContentPage>
