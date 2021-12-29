@@ -31,7 +31,7 @@ namespace KtuMarketApp.Database
 
         public async Task AddPerson(string personname, string password, string userphotourl)
         {
-            await firebase.Child("Persons").PatchAsync(new Person()
+            await firebase.Child("Persons").PostAsync(new Person()
             {
                 PersonName = personname,
                 Password = password,
