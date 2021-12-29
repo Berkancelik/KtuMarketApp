@@ -14,13 +14,14 @@ namespace KtuMarketApp.Views.SignUp
     public partial class SignUpPage : ContentPage
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
+        public string ImageUrlString { get; set; }
         public SignUpPage()
         {
             InitializeComponent();
 
         }
 
-        async void GetPictureFromSource(object sender, EventArgs e)
+        public async void GetPictureFromSource(object sender, EventArgs e)
         {
             var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
             {
@@ -32,11 +33,12 @@ namespace KtuMarketApp.Views.SignUp
                 var stream = await result.OpenReadAsync();
 
                 resultImage.Source = ImageSource.FromStream(() => stream);
-                photopathtext.Text = result.FullPath;
+                ImageUrlString = await firebaseHelper.GetPhotoUrl(result.FileName, result);
+                photopathtext.Text = result.FileName;
             }
         }
 
-        async void TakePictureFromCamera(object sender, EventArgs e)
+        public async void TakePictureFromCamera(object sender, EventArgs e)
         {
             var result = await MediaPicker.CapturePhotoAsync();
 
@@ -45,13 +47,17 @@ namespace KtuMarketApp.Views.SignUp
                 var stream = await result.OpenReadAsync();
 
                 resultImage.Source = ImageSource.FromStream(() => stream);
-                photopathtext.Text = result.FullPath;
+                ImageUrlString = await firebaseHelper.GetPhotoUrl(result.FileName, result);
+                photopathtext.Text = result.FileName;
             }
         }
 
         async void SignUpActionClicked(object sender, EventArgs e)
         {
-            await firebaseHelper.AddPerson(username.Text, password.Text, "url");
+            // Kullanıcı bilgilerini 
+            await firebaseHelper.AddPerson(username.Text, password.Text, ImageUrlString);
+            await DisplayAlert("Üye Kaydınız Tamamlandı", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
+            //await Navigation.PushAsync(n)
         }
     }
 }

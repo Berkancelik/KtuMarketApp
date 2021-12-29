@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Firebase.Storage;
 using KtuMarketApp.Models;
+using Xamarin.Essentials;
 
 namespace KtuMarketApp.Database
 {
@@ -38,5 +42,32 @@ namespace KtuMarketApp.Database
                 UserPhotoUrl = userphotourl
             });
         }
+
+        public async Task<string> GetPhotoUrl(string imagename, FileResult result)
+        {
+            string imageurlstring = await new FirebaseStorage("xamarinfirebase-3a73b.appspot.com").Child("UserPhotos").Child(imagename).PutAsync(await result.OpenReadAsync());
+            return imageurlstring;
+        }
+
+        // Sistemde bütün kayıtlı kullanıcıları çekiyor
+        public async Task<List<Person>> GetAllPerson()
+        {
+            return (await firebase.Child("Persons").OnceAsync<Person>()).Select(item => new Person
+            {
+                PersonName = item.Object.PersonName,
+                Password = item.Object.Password,
+                UserPhotoUrl = item.Object.UserPhotoUrl
+            }).ToList();
+        }
+
+        // Login İşleminde Kullanılıyor
+        public async Task<Person> GetPerson(string personname, string password)
+        {
+            var allPersons = await GetAllPerson();
+            await firebase.Child("Persons").OnceAsync<Person>();
+            return allPersons.Where(a => a.PersonName == personname && a.Password == password).FirstOrDefault();
+        }
+
+
     }
 }

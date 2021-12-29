@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using KtuMarketApp.Database;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,7 +11,6 @@ namespace KtuMarketApp
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new MainPage());
         }
 

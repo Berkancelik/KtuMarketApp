@@ -24,15 +24,15 @@
             <!-- Login Form -->
             <StackLayout Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2" BackgroundColor="DarkSeaGreen">
                 <Label Text="Kullanıcı Adı" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Title"></Label>
-                <Entry BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
+                <Entry x:Name="NameEntry" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
 
                 <Label Text="Şifre" HorizontalOptions="Center"  FontAttributes="Bold" FontSize="Title"></Label>
-                <Entry BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
+                <Entry x:Name="PasswordEntry" IsPassword="True" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
 
                 <!-- Buttons -->
                 <StackLayout>
-                    <Button Text="Giriş Yap" CornerRadius="25"></Button>
-                    <Button Text="Kayıt Ol" CornerRadius="25" Clicked="GoToSignUp"></Button>
+                    <Button Text="Giriş Yap" CornerRadius="25" Clicked="SignInClicked"></Button>
+                    <Button Text="Kayıt Ol" CornerRadius="25" Clicked="SignUpClicked"></Button>
                 </StackLayout>
             </StackLayout>
 
