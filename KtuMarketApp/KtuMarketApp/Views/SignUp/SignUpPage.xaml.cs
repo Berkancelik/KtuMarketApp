@@ -14,14 +14,14 @@ namespace KtuMarketApp.Views.SignUp
     public partial class SignUpPage : ContentPage
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
-        public string ImageUrlString { get; set; }
+        private string ImageUrlString { get; set; }
         public SignUpPage()
         {
             InitializeComponent();
 
         }
 
-        public async void GetPictureFromSource(object sender, EventArgs e)
+        private async void GetPictureFromSource(object sender, EventArgs e)
         {
             var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
             {
@@ -38,7 +38,7 @@ namespace KtuMarketApp.Views.SignUp
             }
         }
 
-        public async void TakePictureFromCamera(object sender, EventArgs e)
+        private async void TakePictureFromCamera(object sender, EventArgs e)
         {
             var result = await MediaPicker.CapturePhotoAsync();
 

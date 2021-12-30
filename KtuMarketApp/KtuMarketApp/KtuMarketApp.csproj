@@ -11,6 +11,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\add-photo.png" />
+    <None Remove="Icons\camera.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\add-photo.png" />
+    <EmbeddedResource Include="Icons\camera.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.7" />
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
@@ -20,6 +30,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Views\MainMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Product\AddProduct.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Profile\UserProfile.xaml">

@@ -21,17 +21,17 @@ namespace KtuMarketApp.Database
         }
 
         // Insert Data
-        public async Task AddProduct(string productname, string productimageurl, string marketname, double productprice)
-        {
-            await firebase.Child("Products").PostAsync(new Product()
-            {
-                ProductName = productname,
-                ProductImageUrl = productimageurl,
-                PriceDate = DateTime.Now,
-                MarketName = marketname,
-                ProductPrice = productprice
-            });
-        }
+        //public async Task AddProduct(string productname, string productimageurl, string marketname, double productprice)
+        //{
+        //    await firebase.Child("Products").PostAsync(new Product()
+        //    {
+        //        ProductName = productname,
+        //        ProductImageUrl = productimageurl,
+        //        PriceDate = DateTime.Now,
+        //        MarketName = marketname,
+        //        ProductPrice = productprice
+        //    });
+        //}
 
         public async Task AddPerson(string personname, string password, string userphotourl)
         {
@@ -43,9 +43,17 @@ namespace KtuMarketApp.Database
             });
         }
 
+        // Kullanıcı Fotoğrafı Al
         public async Task<string> GetPhotoUrl(string imagename, FileResult result)
         {
             string imageurlstring = await new FirebaseStorage("xamarinfirebase-3a73b.appspot.com").Child("UserPhotos").Child(imagename).PutAsync(await result.OpenReadAsync());
+            return imageurlstring;
+        }
+
+        // Ürün fotoğrafı al
+        public async Task<string> GetProductPhotoUrl(string imagename, FileResult result)
+        {
+            string imageurlstring = await new FirebaseStorage("xamarinfirebase-3a73b.appspot.com").Child("ProductPhotos").Child(imagename).PutAsync(await result.OpenReadAsync());
             return imageurlstring;
         }
 

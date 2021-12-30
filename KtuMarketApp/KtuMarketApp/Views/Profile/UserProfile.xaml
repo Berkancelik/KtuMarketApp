@@ -8,7 +8,7 @@
 
             <!-- Kullanıcı Profili -->
             <StackLayout>
-                <Image Source="{Binding UserPhotoUrl}" BackgroundColor="Aqua"></Image>
+                <Image Source="{Binding UserPhotoUrl}" HeightRequest="100"></Image>
             </StackLayout>
 
             <Label Text="{Binding PersonName, StringFormat='@{0}'}" BackgroundColor="Bisque" HorizontalTextAlignment="Center" FontSize="30"></Label>

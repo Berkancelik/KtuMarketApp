@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KtuMarketApp.Views.Product.AddProduct">
+
+    <StackLayout Padding="20">
+        <!-- Add Product -->
+        <StackLayout Orientation="Vertical">
+
+            <Image x:Name="resultImage" BackgroundColor="Pink" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"></Image>
+            
+            <!-- Take Photo -->
+            <Button x:Name="TakePhoto" Clicked="TakePhoto_Clicked"></Button>
+            <Label x:Name="photopathtext"></Label>
+
+            <!-- Product Name -->
+            <Label Text="Ürün Adı" HorizontalOptions="Center" FontSize="Large" ></Label>
+            <Entry x:Name="urunadi" Placeholder="Ürün Adı"></Entry>
+            
+            <!-- Product Price -->
+            <Label Text="Ürün Fiyatı" HorizontalOptions="Center" FontSize="Large"></Label>
+            <Entry x:Name="urunfiyati" Keyboard="Numeric"></Entry>
+
+            <!-- Market Name -->
+            <Label Text="Market Seçiniz" HorizontalOptions="Center" FontSize="Large"></Label>
+            <Picker x:Name="market" Title="Market Seçiniz">
+                <Picker.Items>
+                    <x:String>ŞOK</x:String>
+                    <x:String>BİM</x:String>
+                    <x:String>A101</x:String>
+                    <x:String>MİGROS</x:String>
+                    <x:String>CarrefourSA</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button Text="Ürün Ekle" Clicked="AddProduct_Clicked"></Button>
+            
+        </StackLayout>
+
+        
+    </StackLayout>
+
+
+</ContentPage>
