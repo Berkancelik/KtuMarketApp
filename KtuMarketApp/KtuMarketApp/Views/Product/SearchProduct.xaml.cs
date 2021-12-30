@@ -15,6 +15,14 @@ namespace KtuMarketApp.Views.Product
         public SearchProduct()
         {
             InitializeComponent();
+
+            listview.ItemsSource = new string[]
+            {
+                "item 1",
+                "item 2",
+                "item 3"
+            };
+
         }
     }
 }

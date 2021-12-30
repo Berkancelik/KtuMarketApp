@@ -3,18 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.Views.Product.SearchProduct">
     <ContentPage.Content>
-
-        <StackLayout Padding="10">
+        <StackLayout Padding="10" Spacing="10">
             <!-- Product Name Searchbar -->
-            <Entry 
-                Placeholder="Ürün Adı Giriniz" 
-                PlaceholderColor="Red"
-                TextColor="Black">
-            </Entry>
+            <StackLayout Orientation="Horizontal">
+                <Entry Placeholder="Ürün Adı Giriniz" PlaceholderColor="Red" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>
+                <Button Text="Ara"></Button>
+            </StackLayout>
+
 
             <!-- Product List Title -->
-            <Label Text="Ürün Listesi" FontSize="Large" TextColor="Black" TextDecorations="Underline" FontAttributes="Bold" HorizontalOptions="Center"/>
-
+            <ListView 
+                x:Name="listview" 
+                SelectionMode="None" 
+                SeparatorColor="Gray"
+                RowHeight="90"
+                HasUnevenRows="True">
+                <ListView.Header>
+                    <StackLayout>
+                        <Label  
+                            Text="Ürün Listesi" 
+                            FontSize="Large" 
+                            TextColor="White" 
+                            FontFamily="monospace" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="Black"
+                            HorizontalTextAlignment="Center">
+                        </Label>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<ImageCell ImageSource="https://static.javatpoint.com/fullformpages/images/imdb.png" Text="Ürün Adı" Detail="Ürün Barkodu"></ImageCell>-->
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Image Source="https://static.javatpoint.com/fullformpages/images/imdb.png"></Image>
+                                <StackLayout>
+                                    <Label Text="Ürün Adı"></Label>
+                                    <Label Text="Ürün Barkodu"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
 
         </StackLayout>
