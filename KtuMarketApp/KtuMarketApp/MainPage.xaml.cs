@@ -1,4 +1,5 @@
 ﻿using KtuMarketApp.Database;
+using KtuMarketApp.Views;
 using KtuMarketApp.Views.Profile;
 using KtuMarketApp.Views.PromotionPages;
 using KtuMarketApp.Views.SignUp;
@@ -38,12 +39,12 @@ namespace KtuMarketApp
 
                 if (person != null)
                 {
-                    await DisplayAlert("Kullanıcı Bilgileri Doğru", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
-                    await Navigation.PushAsync(new UserProfile());
+                    await DisplayAlert($"Kullanıcı Bilgileri Doğru {person}", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
+                    await Navigation.PushAsync(new MainMenu(person));
                 }
                 else
                 {
-                    await DisplayAlert("Kullanıcı Bilgileri Hatalı", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
+                    await DisplayAlert("Kullanıcı Bilgileri Hatalı", "Ana Menüye Yönlendiriliyorsunuz...", "Tamam");
                 }
             }
 

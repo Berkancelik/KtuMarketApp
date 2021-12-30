@@ -69,5 +69,17 @@ namespace KtuMarketApp.Database
         }
 
 
+        // Kullanıcı Kayıt Silme İşlemi
+        public async Task DeletePerson(string personname)
+        {
+            // Silinecek Hsabı Bul
+            var toDeletePerson = (await firebase.Child("Persons").OnceAsync<Person>()).Where(a => a.Object.PersonName == personname).FirstOrDefault();
+
+            // Hesabı Sil
+            await firebase.Child("Persons").Child(toDeletePerson.Key).DeleteAsync();
+        }
+
+
+
     }
 }

@@ -4,11 +4,17 @@
              x:Class="KtuMarketApp.Views.Profile.UserProfile"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Orientation="Vertical" x:Name="UserProfileContainer">
 
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <!-- Kullanıcı Profili -->
+            <StackLayout>
+                <Image Source="{Binding UserPhotoUrl}" BackgroundColor="Aqua"></Image>
+            </StackLayout>
+
+            <Label Text="{Binding PersonName, StringFormat='@{0}'}" BackgroundColor="Bisque" HorizontalTextAlignment="Center" FontSize="30"></Label>
+
+            <Button Text="Şifre Değiştir"></Button>
+            <Button Text="Hesabı Sil" Clicked="DeletePerson"></Button>
 
         </StackLayout>
     </ContentPage.Content>
