@@ -10,7 +10,7 @@
             <Image x:Name="resultImage" BackgroundColor="Pink" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"></Image>
             
             <!-- Take Photo -->
-            <Button x:Name="TakePhoto" Clicked="TakePhoto_Clicked"></Button>
+            <Button x:Name="TakePhoto" Text="Fotoğraf Al" Clicked="TakePhoto_Clicked"></Button>
             <Label x:Name="photopathtext"></Label>
 
             <!-- Product Name -->
@@ -36,9 +36,7 @@
             <Button Text="Ürün Ekle" Clicked="AddProduct_Clicked"></Button>
             
         </StackLayout>
-
         
     </StackLayout>
-
 
 </ContentPage>

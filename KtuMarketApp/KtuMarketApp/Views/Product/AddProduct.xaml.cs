@@ -16,10 +16,11 @@ namespace KtuMarketApp.Views.Product
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         private string ImageUrlString { get; set; }
+        private Person _person;
         public AddProduct(Person person)
         {
             InitializeComponent();
-
+            _person = person;
         }
 
         // Fotoğraf Alan Fonksiyon
@@ -38,9 +39,12 @@ namespace KtuMarketApp.Views.Product
         }
 
         // Ürün Ekle
-        private void AddProduct_Clicked(object sender, EventArgs e)
+        private async void AddProduct_Clicked(object sender, EventArgs e)
         {
-
+            await firebaseHelper.AddProduct(urunadi.Text, ImageUrlString, _person.PersonName, market.SelectedItem.ToString(), Convert.ToDouble(urunfiyati.Text));
+            await DisplayAlert("Ürün Eklendi", $"{urunadi.Text} {market.SelectedItem} adlı markete eklendi", "Tamam");
+            urunadi.Text = string.Empty;
+            urunfiyati.Text = string.Empty;
         }
     }
 }

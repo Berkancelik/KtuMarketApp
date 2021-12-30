@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KtuMarketApp.Views.Product.SearchProduct">
+    <ContentPage.Content>
+
+        <StackLayout Padding="10">
+            <!-- Product Name Searchbar -->
+            <Entry 
+                Placeholder="Ürün Adı Giriniz" 
+                PlaceholderColor="Red"
+                TextColor="Black">
+            </Entry>
+
+            <!-- Product List Title -->
+            <Label Text="Ürün Listesi" FontSize="Large" TextColor="Black" TextDecorations="Underline" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

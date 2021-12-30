@@ -57,7 +57,7 @@ namespace KtuMarketApp.Views.SignUp
             // Kullanıcı bilgilerini 
             await firebaseHelper.AddPerson(username.Text, password.Text, ImageUrlString);
             await DisplayAlert("Üye Kaydınız Tamamlandı", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
-            //await Navigation.PushAsync(n)
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }

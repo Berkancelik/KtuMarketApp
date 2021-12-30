@@ -22,17 +22,16 @@ namespace KtuMarketApp.Views
 
             this.Children.Add(new UserProfile(person)
             {
-                Title = "Kullanıcı Profili",
-                IconImageSource = "https://cdn-icons.flaticon.com/png/512/552/premium/552909.png?token=exp=1640818254~hmac=12bfc4860085754b1065cc6dacc3e0da"
+                IconImageSource = "https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1640894715~hmac=ee2a03636d8e8b56f9ac60dd6ca637c2",
             });
             this.Children.Add(new AddProduct(person)
             {
-                Title = "Ürün Ekle",
                 IconImageSource = "https://cdn-icons-png.flaticon.com/512/2891/2891421.png"
             });
-
-
+            this.Children.Add(new SearchProduct()
+            {
+                IconImageSource = "https://cdn-icons-png.flaticon.com/512/54/54481.png"
+            });
         }
-
     }
 }

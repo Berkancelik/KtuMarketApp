@@ -20,19 +20,33 @@ namespace KtuMarketApp.Database
 
         }
 
-        // Insert Data
-        //public async Task AddProduct(string productname, string productimageurl, string marketname, double productprice)
-        //{
-        //    await firebase.Child("Products").PostAsync(new Product()
-        //    {
-        //        ProductName = productname,
-        //        ProductImageUrl = productimageurl,
-        //        PriceDate = DateTime.Now,
-        //        MarketName = marketname,
-        //        ProductPrice = productprice
-        //    });
-        //}
 
+
+
+        // Ürün fotoğrafı al
+        public async Task<string> GetProductPhotoUrl(string imagename, FileResult result)
+        {
+            string imageurlstring = await new FirebaseStorage("xamarinfirebase-3a73b.appspot.com").Child("ProductPhotos").Child(imagename).PutAsync(await result.OpenReadAsync());
+            return imageurlstring;
+        }
+
+        // Ürün Ekle
+        public async Task AddProduct(string productname, string productimageurl, string personname ,string marketname, double productprice)
+        {
+            await firebase.Child("Products").PostAsync(new Product()
+            {
+                ProductName = productname,
+                ProductImageUrl = productimageurl,
+                PriceAddedDate = DateTime.Now,
+                PersonName = personname,
+                MarketName = marketname,
+                ProductPrice = productprice
+            });
+        }
+
+
+
+        // Kullanıcı Kaydı Oluşturur
         public async Task AddPerson(string personname, string password, string userphotourl)
         {
             await firebase.Child("Persons").PostAsync(new Person()
@@ -47,13 +61,6 @@ namespace KtuMarketApp.Database
         public async Task<string> GetPhotoUrl(string imagename, FileResult result)
         {
             string imageurlstring = await new FirebaseStorage("xamarinfirebase-3a73b.appspot.com").Child("UserPhotos").Child(imagename).PutAsync(await result.OpenReadAsync());
-            return imageurlstring;
-        }
-
-        // Ürün fotoğrafı al
-        public async Task<string> GetProductPhotoUrl(string imagename, FileResult result)
-        {
-            string imageurlstring = await new FirebaseStorage("xamarinfirebase-3a73b.appspot.com").Child("ProductPhotos").Child(imagename).PutAsync(await result.OpenReadAsync());
             return imageurlstring;
         }
 
@@ -87,6 +94,7 @@ namespace KtuMarketApp.Database
             await firebase.Child("Persons").Child(toDeletePerson.Key).DeleteAsync();
         }
 
+        // Şifre Güncelleme
         public async Task UpdatePerson(string personname, string newpassword)
         {
             var toUpdatePerson = (await firebase.Child("Persons").OnceAsync<Person>()).Where(a => a.Object.PersonName == personname).FirstOrDefault();
