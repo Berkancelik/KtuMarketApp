@@ -4,7 +4,7 @@
              x:Class="KtuMarketApp.Views.Profile.UserProfile"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" x:Name="UserProfileContainer">
+        <StackLayout Orientation="Vertical" x:Name="UserProfileContainer" Padding="20">
 
             <!-- Kullanıcı Profili -->
             <StackLayout>
@@ -13,7 +13,8 @@
 
             <Label Text="{Binding PersonName, StringFormat='@{0}'}" BackgroundColor="Bisque" HorizontalTextAlignment="Center" FontSize="30"></Label>
 
-            <Button Text="Şifre Değiştir"></Button>
+            <Entry x:Name="NewPasswordEntry" Placeholder="Yeni Şifre"></Entry>
+            <Button Text="Şifre Değiştir" Clicked="UpdatePerson"></Button>
             <Button Text="Hesabı Sil" Clicked="DeletePerson"></Button>
 
         </StackLayout>

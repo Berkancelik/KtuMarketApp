@@ -79,7 +79,15 @@ namespace KtuMarketApp.Database
             await firebase.Child("Persons").Child(toDeletePerson.Key).DeleteAsync();
         }
 
+        public async Task UpdatePerson(string personname, string newpassword)
+        {
+            var toUpdatePerson = (await firebase.Child("Persons").OnceAsync<Person>()).Where(a => a.Object.PersonName == personname).FirstOrDefault();
 
+            await firebase.Child("Persons").Child(toUpdatePerson.Key).PutAsync(new Person() { 
+                PersonName = toUpdatePerson.Object.PersonName, 
+                Password = newpassword, 
+                UserPhotoUrl = toUpdatePerson.Object.UserPhotoUrl });
+        }
 
     }
 }

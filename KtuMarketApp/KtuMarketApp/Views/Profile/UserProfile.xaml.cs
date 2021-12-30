@@ -29,5 +29,23 @@ namespace KtuMarketApp.Views.Profile
             await DisplayAlert("Hesap Silindi", "Anasayfaya Yönlendiriliyorsunuz...", "Tamam");
             await Navigation.PopToRootAsync();
         }
+
+        private async void UpdatePerson(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(NewPasswordEntry.Text))
+            {
+                await firebaseHelper.UpdatePerson(_person, NewPasswordEntry.Text);
+                await DisplayAlert("Şifreniz Güncellendi", $"Yeni şifreniz : {NewPasswordEntry.Text}", "Tamam");
+                NewPasswordEntry.Text = string.Empty;
+                
+
+            }
+            else
+            {
+                await DisplayAlert("Geçersiz Değer", "Verilen Alanı Eksiksiz Doldurunuz!", "Tamam");
+            }
+
+
+        }
     }
 }
