@@ -61,6 +61,21 @@ namespace KtuMarketApp.Database
 
         }
 
+        // Sorgulanan barkodu alan bir ürün var mı?
+        public async Task<Product> GetAllProductWithBarcode(string barcodestring)
+        {
+            return (await firebase.Child("Products").OnceAsync<Product>()).Select(item => new Product()
+            {
+                ProductBarcode = item.Object.ProductBarcode,
+                ProductName = item.Object.ProductName,
+                ProductImageUrl = item.Object.ProductImageUrl,
+                PriceAddedDate = item.Object.PriceAddedDate,
+                PersonName = item.Object.PersonName,
+                MarketName = item.Object.MarketName,
+                ProductPrice = item.Object.ProductPrice
+            }).Where(a => a.ProductBarcode == barcodestring).FirstOrDefault(); ;
+        }
+
         /*----------------------------------- Kullanıcı İşlemleri -----------------------------------------*/
 
         // Kullanıcı Kaydı Oluşturur

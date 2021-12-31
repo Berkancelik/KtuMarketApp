@@ -41,7 +41,7 @@ namespace KtuMarketApp.Views.Product
                 if (urunadi.Text.Length >= 3)
                 {
                     // Aranan Ürünü Sorgula
-                    var result = await firebaseHelper.GetAllProduct(urunadi.Text);
+                    var result = await firebaseHelper.GetAllProduct(urunadi.Text.ToUpper());
                     if (!result.Count.Equals(0))
                     {
                         // Aranan Ürünü Listele
@@ -79,14 +79,19 @@ namespace KtuMarketApp.Views.Product
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await Navigation.PopAsync();
+                    var product = await firebaseHelper.GetAllProductWithBarcode(result.Text);
 
-
-                    // Ürün Barkodu mevcutsa
-                    urunadi.Text = result.Text;
-
-                    // Ürün Barkodu mevcut değilse
-                    await Navigation.PushAsync(new AddProduct(_person));
+                    if (product != null)
+                    {
+                        await Navigation.PopAsync();
+                        // Ürün Barkodu mevcutsa
+                        urunadi.Text = product.ProductName;
+                    }
+                    else
+                    {
+                        // Ürün Barkodu mevcut değilse
+                        await Navigation.PushAsync(new AddProduct(_person));
+                    }
                 });
             };
 
