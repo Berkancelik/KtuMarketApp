@@ -41,9 +41,10 @@ namespace KtuMarketApp.Views.Product
         // Ürün Ekle
         private async void AddProduct_Clicked(object sender, EventArgs e)
         {
-            await firebaseHelper.AddProduct(urunadi.Text, ImageUrlString, _person.PersonName, market.SelectedItem.ToString(), Convert.ToDouble(urunfiyati.Text));
-            await DisplayAlert("Ürün Eklendi", $"{urunadi.Text} {market.SelectedItem} adlı markete eklendi", "Tamam");
+            await firebaseHelper.AddProduct(urunbarcode.Text, urunadi.Text.ToUpper(), ImageUrlString, _person.PersonName, market.SelectedItem.ToString(), Convert.ToDouble(urunfiyati.Text));
+            await DisplayAlert("Ürün Eklendi", $"{urunadi.Text.ToUpper()} {market.SelectedItem} adlı markete eklendi", "Tamam");
             urunadi.Text = string.Empty;
+            urunbarcode.Text = string.Empty;
             urunfiyati.Text = string.Empty;
         }
     }

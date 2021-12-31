@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KtuMarketApp.Views.Product.ProductDetail"
+             IconImageSource="">
+    <ContentPage.Content>
+
+        <StackLayout Padding="20" Spacing="15" Orientation="Vertical">
+            <Label Text="Ürün Detay" HorizontalTextAlignment="Center" FontSize="Title"></Label>
+            <StackLayout>
+                <!-- Photo Container -->
+                <StackLayout>
+                    <Image Source="{Binding ProductImageUrl}" Aspect="AspectFit"  WidthRequest="150"></Image>
+                </StackLayout>
+
+                <!-- Text Container -->
+                <StackLayout Spacing="10" HorizontalOptions="Center" BackgroundColor="Yellow">
+                    <Label Text="{Binding ProductBarcode , StringFormat='Ürünün Barkodu : {0}'}"></Label>
+                    <Label Text="{Binding ProductName , StringFormat='Ürünün Adı : {0}'}"></Label>
+                    <Label Text="{Binding PriceAddedDate , StringFormat='Ürünün Eklendiği Tarih : {0: MM/dd/yyyy HH:mm:ss tt}'}"></Label>
+                    <Label Text="{Binding PersonName , StringFormat='Ürünü Ekleyen Kişi : @{0}'}"></Label>
+                    <Label Text="{Binding MarketName , StringFormat='Ürünün Bulunduğu Market : {0}'}"></Label>
+                    <Label Text="{Binding ProductPrice , StringFormat='Ürünün Fiyatı : {0}'}"></Label>
+                </StackLayout>
+
+                <!-- Add Favourite -->
+            </StackLayout>
+            <Button Text="Ürünü Takip Listesine Ekle" BackgroundColor="DarkSeaGreen"></Button>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

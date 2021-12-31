@@ -16,10 +16,14 @@
             <!-- Product Name -->
             <Label Text="Ürün Adı" HorizontalOptions="Center" FontSize="Large" ></Label>
             <Entry x:Name="urunadi" Placeholder="Ürün Adı"></Entry>
-            
+
+            <!-- Product Barcode -->
+            <Label Text="Ürün Barkod No" HorizontalOptions="Center" FontSize="Large" ></Label>
+            <Entry x:Name="urunbarcode" Text="" Placeholder="örn:8050705430185" Keyboard="Numeric"></Entry>
+
             <!-- Product Price -->
             <Label Text="Ürün Fiyatı" HorizontalOptions="Center" FontSize="Large"></Label>
-            <Entry x:Name="urunfiyati" Keyboard="Numeric"></Entry>
+            <Entry x:Name="urunfiyati" Placeholder="örn: 10.5₺" Keyboard="Numeric"></Entry>
 
             <!-- Market Name -->
             <Label Text="Market Seçiniz" HorizontalOptions="Center" FontSize="Large"></Label>

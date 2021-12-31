@@ -21,7 +21,7 @@ namespace KtuMarketApp.Database
         }
 
 
-
+        /*----------------------------- Ürün İşlemleri ---------------------------------------*/
 
         // Ürün fotoğrafı al
         public async Task<string> GetProductPhotoUrl(string imagename, FileResult result)
@@ -31,10 +31,11 @@ namespace KtuMarketApp.Database
         }
 
         // Ürün Ekle
-        public async Task AddProduct(string productname, string productimageurl, string personname, string marketname, double productprice)
+        public async Task AddProduct(string productbarcode, string productname, string productimageurl, string personname, string marketname, double productprice)
         {
             await firebase.Child("Products").PostAsync(new Product()
             {
+                ProductBarcode = productbarcode,
                 ProductName = productname,
                 ProductImageUrl = productimageurl,
                 PriceAddedDate = DateTime.Now,
@@ -44,18 +45,23 @@ namespace KtuMarketApp.Database
             });
         }
 
-        public async Task<List<Product>> GetAllProduct()
+        // Filtreli ürünleri Listele
+        public async Task<List<Product>> GetAllProduct(string productname)
         {
             return (await firebase.Child("Products").OnceAsync<Product>()).Select(item => new Product()
             {
+                ProductBarcode = item.Object.ProductBarcode,
                 ProductName = item.Object.ProductName,
                 ProductImageUrl = item.Object.ProductImageUrl,
                 PriceAddedDate = item.Object.PriceAddedDate,
                 PersonName = item.Object.PersonName,
                 MarketName = item.Object.MarketName,
                 ProductPrice = item.Object.ProductPrice
-            }).ToList();
+            }).Where(a => a.ProductName.StartsWith(productname.ToUpper())).OrderByDescending(product => product.PriceAddedDate).OrderByDescending(product => product.ProductPrice).ToList();
+
         }
+
+        /*----------------------------------- Kullanıcı İşlemleri -----------------------------------------*/
 
         // Kullanıcı Kaydı Oluşturur
         public async Task AddPerson(string personname, string password, string userphotourl)

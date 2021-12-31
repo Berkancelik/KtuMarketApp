@@ -6,18 +6,23 @@
         <StackLayout Padding="10" Spacing="10">
             <!-- Product Name Searchbar -->
             <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Ürün Adı Giriniz" PlaceholderColor="Red" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>
-                <Button Text="Ara"></Button>
+                <SearchBar x:Name="urunadi" Placeholder="Ara" PlaceholderColor="Red" TextColor="Black" WidthRequest="170"
+                           CancelButtonColor="Blue"
+                           ></SearchBar>
+                <!--<Entry x:Name="urunadi" Placeholder="Ürün Adı Giriniz" PlaceholderColor="Red" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>-->
+                <Button Text="Ara" Clicked="SearchButton_Clicked"></Button>
+                <Button Text="Barkod Tara"></Button>
             </StackLayout>
 
-
+            <Label x:Name="product"></Label>
             <!-- Product List Title -->
             <ListView 
                 x:Name="listview" 
-                SelectionMode="None" 
                 SeparatorColor="Gray"
                 RowHeight="90"
-                HasUnevenRows="True">
+                HasUnevenRows="True"
+                SelectionMode="None"
+                ItemTapped="listview_ItemTapped">
                 <ListView.Header>
                     <StackLayout>
                         <Label  
@@ -37,11 +42,13 @@
                         <!--<ImageCell ImageSource="https://static.javatpoint.com/fullformpages/images/imdb.png" Text="Ürün Adı" Detail="Ürün Barkodu"></ImageCell>-->
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Spacing="10">
-                                <Image Source="{Binding ProductImageUrl}" WidthRequest="200"></Image>
+                                <Image Source="{Binding ProductImageUrl}" WidthRequest="120" Aspect="AspectFit"></Image>
                                 <StackLayout Padding="10" VerticalOptions="Center">
+                                    <Label Text="{Binding ProductBarcode, StringFormat='Ürün Barkodu : {0:0-000000-000000}'}"></Label>
                                     <Label Text="{Binding ProductName, StringFormat='Ürün Adı : {0}'}"></Label>
-                                    <Label Text="Ürün Barkodu"></Label>
-                                    <Label Text="{Binding PersonName, StringFormat='@{0}'}"></Label>
+                                    <Label Text="{Binding MarketName, StringFormat='Market Adı : {0}'}"></Label>
+                                    <Label Text="{Binding ProductPrice, StringFormat='Ürün Fiyatı : {0}'}"></Label>
+                                    <Label Text="{Binding PriceAddedDate , StringFormat='Ürünün Eklendiği Tarih : {0: MM/dd/yyyy HH:mm:ss tt}'}"></Label>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

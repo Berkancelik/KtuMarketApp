@@ -28,7 +28,7 @@ namespace KtuMarketApp.Views
             {
                 IconImageSource = "https://cdn-icons-png.flaticon.com/512/2891/2891421.png"
             });
-            this.Children.Add(new SearchProduct()
+            this.Children.Add(new SearchProduct(person)
             {
                 IconImageSource = "https://cdn-icons-png.flaticon.com/512/54/54481.png"
             });
