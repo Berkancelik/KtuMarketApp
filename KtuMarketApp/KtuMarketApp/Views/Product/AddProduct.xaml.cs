@@ -17,6 +17,7 @@ namespace KtuMarketApp.Views.Product
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         private string ImageUrlString { get; set; }
         private Person _person;
+        
         public AddProduct(Person person)
         {
             InitializeComponent();

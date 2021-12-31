@@ -12,7 +12,7 @@
                            SearchButtonPressed="SearchButton_Clicked"></SearchBar>
                     <!--<Entry x:Name="urunadi" Placeholder="Ürün Adı Giriniz" PlaceholderColor="Red" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>-->
                     <!--<Button Text="Barkod Tara"></Button>-->
-                    <ImageButton Aspect="AspectFit" Source="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/344/external-barcode-sales-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"></ImageButton>
+                    <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked" Aspect="AspectFit" Source="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/344/external-barcode-sales-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"></ImageButton>
                 </StackLayout>
 
                 <Label x:Name="product"></Label>

@@ -7,6 +7,7 @@ using KtuMarketApp.Database;
 using KtuMarketApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZXing.Net.Mobile.Forms;
 
 namespace KtuMarketApp.Views.Product
 {
@@ -52,7 +53,7 @@ namespace KtuMarketApp.Views.Product
                         await Navigation.PushAsync(new AddProduct(_person));
                     }
 
-                    
+
                 }
                 else
                 {
@@ -63,6 +64,31 @@ namespace KtuMarketApp.Views.Product
             {
                 await DisplayAlert("Geçersiz Ürün Adı", "Ürün için en az üç karakter giriniz!", "Tamam");
             }
+
+
+        }
+
+        // Ürün Barkod Sorgula
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            var scanner = new ZXingScannerPage();
+
+            await Navigation.PushAsync(scanner);
+
+            scanner.OnScanResult += (result) =>
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Navigation.PopAsync();
+
+
+                    // Ürün Barkodu mevcutsa
+                    urunadi.Text = result.Text;
+
+                    // Ürün Barkodu mevcut değilse
+                    await Navigation.PushAsync(new AddProduct(_person));
+                });
+            };
 
 
         }
