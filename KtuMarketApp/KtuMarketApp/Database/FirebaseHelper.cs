@@ -31,7 +31,7 @@ namespace KtuMarketApp.Database
         }
 
         // Ürün Ekle
-        public async Task AddProduct(string productname, string productimageurl, string personname ,string marketname, double productprice)
+        public async Task AddProduct(string productname, string productimageurl, string personname, string marketname, double productprice)
         {
             await firebase.Child("Products").PostAsync(new Product()
             {
@@ -44,7 +44,18 @@ namespace KtuMarketApp.Database
             });
         }
 
-
+        public async Task<List<Product>> GetAllProduct()
+        {
+            return (await firebase.Child("Products").OnceAsync<Product>()).Select(item => new Product()
+            {
+                ProductName = item.Object.ProductName,
+                ProductImageUrl = item.Object.ProductImageUrl,
+                PriceAddedDate = item.Object.PriceAddedDate,
+                PersonName = item.Object.PersonName,
+                MarketName = item.Object.MarketName,
+                ProductPrice = item.Object.ProductPrice
+            }).ToList();
+        }
 
         // Kullanıcı Kaydı Oluşturur
         public async Task AddPerson(string personname, string password, string userphotourl)
@@ -83,7 +94,6 @@ namespace KtuMarketApp.Database
             return allPersons.Where(a => a.PersonName == personname && a.Password == password).FirstOrDefault();
         }
 
-
         // Kullanıcı Kayıt Silme İşlemi
         public async Task DeletePerson(string personname)
         {
@@ -99,10 +109,12 @@ namespace KtuMarketApp.Database
         {
             var toUpdatePerson = (await firebase.Child("Persons").OnceAsync<Person>()).Where(a => a.Object.PersonName == personname).FirstOrDefault();
 
-            await firebase.Child("Persons").Child(toUpdatePerson.Key).PutAsync(new Person() { 
-                PersonName = toUpdatePerson.Object.PersonName, 
-                Password = newpassword, 
-                UserPhotoUrl = toUpdatePerson.Object.UserPhotoUrl });
+            await firebase.Child("Persons").Child(toUpdatePerson.Key).PutAsync(new Person()
+            {
+                PersonName = toUpdatePerson.Object.PersonName,
+                Password = newpassword,
+                UserPhotoUrl = toUpdatePerson.Object.UserPhotoUrl
+            });
         }
 
     }

@@ -6,6 +6,7 @@ namespace KtuMarketApp.Models
 {
     public class Product
     {
+        //public string ProductBarcode { get; set; }
         public string ProductName { get; set; }
         public string ProductImageUrl { get; set; }
         public DateTime PriceAddedDate { get; set; }

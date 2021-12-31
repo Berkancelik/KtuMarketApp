@@ -37,10 +37,11 @@
                         <!--<ImageCell ImageSource="https://static.javatpoint.com/fullformpages/images/imdb.png" Text="Ürün Adı" Detail="Ürün Barkodu"></ImageCell>-->
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Spacing="10">
-                                <Image Source="https://static.javatpoint.com/fullformpages/images/imdb.png"></Image>
-                                <StackLayout>
-                                    <Label Text="Ürün Adı"></Label>
+                                <Image Source="{Binding ProductImageUrl}" WidthRequest="200"></Image>
+                                <StackLayout Padding="10" VerticalOptions="Center">
+                                    <Label Text="{Binding ProductName, StringFormat='Ürün Adı : {0}'}"></Label>
                                     <Label Text="Ürün Barkodu"></Label>
+                                    <Label Text="{Binding PersonName, StringFormat='@{0}'}"></Label>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
