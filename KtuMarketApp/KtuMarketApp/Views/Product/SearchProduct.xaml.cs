@@ -52,8 +52,6 @@ namespace KtuMarketApp.Views.Product
                         await DisplayAlert("Ürün Bulunamadı", "Ürün Ekleme Sayfasına Yönlendiriliyorsunuz.", "Tamam");
                         await Navigation.PushAsync(new AddProduct(_person));
                     }
-
-
                 }
                 else
                 {

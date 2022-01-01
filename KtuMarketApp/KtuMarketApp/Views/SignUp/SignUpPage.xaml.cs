@@ -54,10 +54,27 @@ namespace KtuMarketApp.Views.SignUp
 
         async void SignUpActionClicked(object sender, EventArgs e)
         {
-            // Kullanıcı bilgilerini 
-            await firebaseHelper.AddPerson(username.Text, password.Text, ImageUrlString);
-            await DisplayAlert("Üye Kaydınız Tamamlandı", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
-            await Navigation.PushAsync(new MainPage());
+            var user = await firebaseHelper.GetPerson(username.Text, password.Text);
+
+            if (!(string.IsNullOrEmpty(username.Text) && string.IsNullOrEmpty(username.Text)))
+            {
+                if (user != null)
+                {
+                    await DisplayAlert("Kullanıcı Mevcut", "Başka hesap ismi ile kayıt olmayı deneyin", "Tamam");
+                }
+                else
+                {
+                    // Kullanıcı bilgilerini kaydet
+                    await firebaseHelper.AddPerson(username.Text, password.Text, ImageUrlString);
+                    await DisplayAlert("Üye Kaydınız Tamamlandı", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
+                    await Navigation.PushAsync(new MainPage());
+                }
+            }
+            else
+            {
+                await DisplayAlert("Hatalı Giriş", "Verilen Alanları Eksiksiz Doldurunuz", "Tamam");
+            }
+            
         }
     }
 }

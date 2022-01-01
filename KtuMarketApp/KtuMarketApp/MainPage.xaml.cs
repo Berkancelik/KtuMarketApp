@@ -39,12 +39,12 @@ namespace KtuMarketApp
 
                 if (person != null)
                 {
-                    await DisplayAlert($"Kullanıcı Bilgileri Doğru {person}", "Anasayfaya yönlendiriliyorsunuz...", "Tamam");
+                    await DisplayAlert($"Kullanıcı Bilgileri Doğru", "Ana Menüye yönlendiriliyorsunuz...", "Tamam");
                     await Navigation.PushAsync(new MainMenu(person));
                 }
                 else
                 {
-                    await DisplayAlert("Kullanıcı Bilgileri Hatalı", "Ana Menüye Yönlendiriliyorsunuz...", "Tamam");
+                    await DisplayAlert("Kullanıcı Bilgileri Hatalı", "Ana Sayfaya Yönlendiriliyorsunuz...", "Tamam");
                 }
             }
 
