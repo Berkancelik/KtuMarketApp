@@ -19,9 +19,10 @@ namespace KtuMarketApp.Views.Profile
         public UserProfile(Person person)
         {
             InitializeComponent();
-            BindingContext = person;
+            UserProfileContainer.BindingContext = person;
             _person = person.PersonName;
         }
+       
 
         private async void DeletePerson(object sender, EventArgs e)
         {
@@ -47,5 +48,6 @@ namespace KtuMarketApp.Views.Profile
 
 
         }
+
     }
 }

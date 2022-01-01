@@ -14,19 +14,22 @@
                 </StackLayout>
 
                 <!-- Text Container -->
-                <StackLayout Spacing="10" HorizontalOptions="Center" BackgroundColor="Yellow">
+                <StackLayout Spacing="20" HorizontalOptions="Center" BackgroundColor="Yellow">
                     <Label Text="{Binding ProductBarcode , StringFormat='Ürünün Barkodu : {0}'}"></Label>
                     <Label Text="{Binding ProductName , StringFormat='Ürünün Adı : {0}'}"></Label>
                     <Label Text="{Binding PriceAddedDate , StringFormat='Ürünün Eklendiği Tarih : {0: MM/dd/yyyy HH:mm:ss tt}'}"></Label>
                     <Label Text="{Binding PersonName , StringFormat='Ürünü Ekleyen Kişi : @{0}'}"></Label>
                     <Label Text="{Binding MarketName , StringFormat='Ürünün Bulunduğu Market : {0}'}"></Label>
                     <Label Text="{Binding ProductPrice , StringFormat='Ürünün Fiyatı : {0}'}"></Label>
+                    <!-- Add Favourite -->
+                    <Button
+                        Clicked="AddFavourite_Clicked"
+                        Text="Ürünü Takip Listesine Ekle" 
+                        BackgroundColor="DarkSeaGreen"
+                        CommandParameter="{Binding .}">
+                    </Button>
                 </StackLayout>
-
-                <!-- Add Favourite -->
             </StackLayout>
-            <Button Text="Ürünü Takip Listesine Ekle" BackgroundColor="DarkSeaGreen"></Button>
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

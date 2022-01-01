@@ -3,22 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.Views.Profile.UserProfile"
              NavigationPage.HasNavigationBar="False">
-    
-    
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical" x:Name="UserProfileContainer" Padding="20">
 
-            <!-- Kullanıcı Profili -->
-            <StackLayout>
-                <Image Source="{Binding UserPhotoUrl}" HeightRequest="100"></Image>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" x:Name="UserProfileContainer" Padding="20">
+
+                <!-- Kullanıcı Profili -->
+                <StackLayout>
+                    <Image Source="{Binding UserPhotoUrl}" HeightRequest="100"></Image>
+                </StackLayout>
+
+                <Label Text="{Binding PersonName, StringFormat='@{0}'}" BackgroundColor="Bisque" HorizontalTextAlignment="Center" FontSize="30"></Label>
+
+                <Entry x:Name="NewPasswordEntry" Placeholder="Yeni Şifre"></Entry>
+                <Button Text="Şifre Değiştir" Clicked="UpdatePerson"></Button>
+                <Button Text="Hesabı Sil" Clicked="DeletePerson"></Button>
+
             </StackLayout>
 
-            <Label Text="{Binding PersonName, StringFormat='@{0}'}" BackgroundColor="Bisque" HorizontalTextAlignment="Center" FontSize="30"></Label>
 
-            <Entry x:Name="NewPasswordEntry" Placeholder="Yeni Şifre"></Entry>
-            <Button Text="Şifre Değiştir" Clicked="UpdatePerson"></Button>
-            <Button Text="Hesabı Sil" Clicked="DeletePerson"></Button>
-
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

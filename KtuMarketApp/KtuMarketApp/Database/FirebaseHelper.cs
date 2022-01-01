@@ -76,6 +76,30 @@ namespace KtuMarketApp.Database
             }).Where(a => a.ProductBarcode == barcodestring).FirstOrDefault(); ;
         }
 
+        // Kullanıcının Ürününü Takip Listesine Ekler
+        public async Task AddFavouriteProduct(Product product)
+        {
+            await firebase.Child("Favourites").PostAsync(new Product()
+            {
+                ProductBarcode = product.ProductBarcode,
+                ProductName = product.ProductName,
+                ProductImageUrl = product.ProductImageUrl,
+                PriceAddedDate = product.PriceAddedDate,
+                PersonName = product.PersonName,
+                MarketName = product.MarketName,
+                ProductPrice = product.ProductPrice
+            });
+        }
+
+        // Favori Listesinden Ürün Kaldırma
+        public async Task DeleteFavouriteProduct(string personname, string productname, string priceaddeddate)
+        {
+            var DeleteFavouriteProduct = (await firebase.Child("Favourites").OnceAsync<Product>()).Where(p =>
+            p.Object.PersonName == personname && p.Object.ProductName == productname && p.Object.PriceAddedDate.ToString() == priceaddeddate).FirstOrDefault();
+
+            await firebase.Child("Favourites").Child(DeleteFavouriteProduct.Key).DeleteAsync();
+        }
+
         /*----------------------------------- Kullanıcı İşlemleri -----------------------------------------*/
 
         // Kullanıcı Kaydı Oluşturur
@@ -136,6 +160,21 @@ namespace KtuMarketApp.Database
                 Password = newpassword,
                 UserPhotoUrl = toUpdatePerson.Object.UserPhotoUrl
             });
+        }
+
+        // Kullanıcının Takip Listesine Aldığı Ürünleri Listeler
+        public async Task<List<Product>> GetAllFavouriteProduct(string personname)
+        {
+            return (await firebase.Child("Favourites").OnceAsync<Product>()).Select(item => new Product()
+            {
+                ProductBarcode = item.Object.ProductBarcode,
+                ProductName = item.Object.ProductName,
+                ProductImageUrl = item.Object.ProductImageUrl,
+                PriceAddedDate = item.Object.PriceAddedDate,
+                PersonName = item.Object.PersonName,
+                MarketName = item.Object.MarketName,
+                ProductPrice = item.Object.ProductPrice
+            }).Where(a => a.PersonName == personname).ToList();
         }
 
     }

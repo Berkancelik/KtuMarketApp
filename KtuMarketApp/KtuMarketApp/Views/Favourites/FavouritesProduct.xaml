@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KtuMarketApp.Views.Favourites.FavouritesProduct">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView 
+                    x:Name="listView"
+                    IsPullToRefreshEnabled="True"
+                    Refreshing="ListView_Refreshing"
+                    SeparatorVisibility="Default"
+                    SeparatorColor="Black"
+                    HasUnevenRows="True"
+                    SelectionMode="None">
+                    
+                    <ListView.Header>
+                        <Label Text="Ürün Takip Listesi" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Title"></Label>
+                    </ListView.Header>
+                    
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                        Clicked="RemoveFavouriteItem"
+                                        Text="Sil"
+                                        IsDestructive="True"
+                                        CommandParameter="{Binding .}"></MenuItem>
+                                </ViewCell.ContextActions>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+                                    <Image Source="{Binding ProductImageUrl}" Aspect="AspectFill" WidthRequest="150" HeightRequest="150"></Image>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding ProductName}" TextColor="Black"></Label>
+                                        <Label Text="{Binding MarketName}" TextColor="Black"></Label>
+                                        <Label Text="{Binding ProductPrice}" TextColor="Black"></Label>
+                                        <Label Text="{Binding PriceAddedDate}" TextColor="Black"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
