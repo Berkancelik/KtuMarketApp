@@ -6,23 +6,85 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Orientation="Vertical">
 
-                <!-- SignUp Form -->
-                <Image x:Name="resultImage" BackgroundColor="Pink" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"></Image>
-                <Label x:Name="photopathtext"></Label>
-                
-                <Label Text="Kullanıcı Adı" HorizontalOptions="Center"></Label>
-                <Entry Placeholder="Kullanıcı Adı Giriniz" x:Name="username"></Entry>
+            <!--Ana StackLayout-->
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White" Orientation="Vertical">
 
-                <Label Text="Şifre" HorizontalOptions="CenterAndExpand"></Label>
-                <Entry Placeholder="Kullanıcı Adı Giriniz" IsPassword="True" x:Name="password"></Entry>
+                <!--Ktü Logo-->
+
+                <StackLayout  Grid.ColumnSpan="2">
+                    <Image Source="https://github.com/Berkancelik/images/blob/main/ktu%20logo.png?raw=true" WidthRequest="300"></Image>
+                </StackLayout>
+
+                <!--Default User Profile-->
+                <Image x:Name="resultImage" Source="https://github.com/Berkancelik/images/blob/main/default_profile.png?raw=true" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center"></Image>
+
+                <!--Resim yüklendikten sonra gelen text-->
+                <Label x:Name="photopathtext" TextColor="Black"></Label>
 
 
-                <Button Text="Kaynaktan Resim Al" Clicked="GetPictureFromSource"></Button>
-                <Button Text="Resim Çek" Clicked="TakePictureFromCamera"></Button>
 
-                <Button Text="KAYIT OL" CornerRadius="25" Clicked="SignUpActionClicked"></Button>
+                <!--Ana StackLayout-->
+
+                <Grid RowSpacing="50" VerticalOptions="CenterAndExpand" Padding="30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!--Kayıt Form -->
+                    <StackLayout Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2" >
+
+                        <!--Kullanıcı Adı Text-->
+                        <Label Text="Kullanıcı Adı" TextColor="Black"  HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+
+                        <!--User icon ve kullanıcı adı Entry -->
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/User_icon_BLACK-01.png?raw=true" WidthRequest="40"></Image>
+                            <Entry Placeholder="Kullanıcı Adı Giriniz" PlaceholderColor="Black"  x:Name="username" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>
+                        </StackLayout>
+
+                        <!--Şifre Text -->
+                        <Label Text="Şifre" HorizontalOptions="Center"  TextColor="Black" FontAttributes="Bold" FontSize="Medium"></Label>
+
+                        <!--Pasword icon ve Password Entry -->
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/iconmonstr-lock-3-48.png?raw=true" WidthRequest="40"></Image>
+                            <Entry Placeholder="Parola Giriniz" TextColor="Black" PlaceholderColor="Black" IsPassword="True" x:Name="password" HorizontalOptions="FillAndExpand"></Entry>
+                        </StackLayout>
+
+
+
+
+                        <StackLayout VerticalOptions="Center" Spacing="30">
+
+                            <!-- Klasörden resim ekle İmageButton -->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
+                                <ImageButton Source="https://github.com/Berkancelik/images/blob/main/userphoto%20(2).png?raw=true" BackgroundColor="White" Clicked="GetPictureFromSource"></ImageButton>
+
+                                <!-- Resim Çek ekle İmageButton -->
+                                <ImageButton Source="https://github.com/Berkancelik/images/blob/main/userphoto%20(1).png?raw=true" BackgroundColor="White" Clicked="TakePictureFromCamera"></ImageButton>
+                            </StackLayout>
+
+
+                            <!--Kayıt Ol Buton-->
+                            <StackLayout>
+                                <Button Text="Kayıt Ol" CornerRadius="25" FontSize="Medium"   Clicked="SignUpActionClicked" BackgroundColor="Navy"></Button>
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+
+                </Grid>
 
             </StackLayout>
         </ScrollView>

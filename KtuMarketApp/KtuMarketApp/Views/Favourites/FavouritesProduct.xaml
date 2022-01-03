@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.Views.Favourites.FavouritesProduct">
     <ContentPage.Content>
-        <StackLayout Padding="5">
+        <StackLayout Padding="5" BackgroundColor="White">
 
             <StackLayout VerticalOptions="FillAndExpand">
                 <ListView 
@@ -30,12 +30,32 @@
                                         CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
                             <StackLayout Orientation="Horizontal" Spacing="20">
-                                    <Image Source="{Binding ProductImageUrl}" Aspect="AspectFill" WidthRequest="150" HeightRequest="150"></Image>
+                                    <Image Source="{Binding ProductImageUrl}" Aspect="AspectFill" WidthRequest="150" HeightRequest="50"></Image>
                                     <StackLayout VerticalOptions="Center">
-                                        <Label Text="{Binding ProductName}" TextColor="Black"></Label>
-                                        <Label Text="{Binding MarketName}" TextColor="Black"></Label>
-                                        <Label Text="{Binding ProductPrice}" TextColor="Black"></Label>
-                                        <Label Text="{Binding PriceAddedDate}" TextColor="Black"></Label>
+
+                                        
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Ürün Adı :" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                                            <Label Text="{Binding ProductName , StringFormat='{0}'}" TextColor="Black" TextDecorations="Underline"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Ekleme Tarihi:" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                                            <Label Text="{Binding PriceAddedDate , StringFormat='{0: MM/dd/yyyy HH:mm:ss }'}" TextColor="Black" TextDecorations="Underline"></Label>
+                                        </StackLayout>
+
+                                      
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Market Adı:" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                                            <Label Text="{Binding MarketName , StringFormat='{0}'}" TextColor="Black" TextDecorations="Underline"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Ürün Fiyatı :" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                                            <Label Text="{Binding ProductPrice , StringFormat='{0} ₺'}" TextColor="Black" TextDecorations="Underline"></Label>
+                                        </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>

@@ -3,23 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.Views.Product.SearchProduct">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="10" Spacing="10">
+        <ScrollView BackgroundColor="AliceBlue" >
+
+            <StackLayout Padding="10" Spacing="10" BackgroundColor="White">
                 <!-- Product Name Searchbar -->
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" BackgroundColor="Tan">
+
+
                     <SearchBar x:Name="urunadi" Placeholder="Ara" PlaceholderColor="Red" TextColor="Black" WidthRequest="170"
                            CancelButtonColor="Blue"
-                           SearchButtonPressed="SearchButton_Clicked"></SearchBar>
-                    <!--<Entry x:Name="urunadi" Placeholder="Ürün Adı Giriniz" PlaceholderColor="Red" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>-->
-                    <!--<Button Text="Barkod Tara"></Button>-->
-                    <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked" Aspect="AspectFit" Source="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/344/external-barcode-sales-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"></ImageButton>
+                           SearchButtonPressed="SearchButton_Clicked" HorizontalOptions="FillAndExpand"></SearchBar>
+                    <ImageButton Clicked="ImageButton_Clicked" Source="https://github.com/Berkancelik/images/blob/main/iconmonstr-barcode-7-240.png?raw=true" WidthRequest="40" BackgroundColor="Tan"></ImageButton>
+
+
                 </StackLayout>
+
 
                 <Label x:Name="product"></Label>
                 <!-- Product List Title -->
                 <ListView 
                 x:Name="listview" 
-                SeparatorColor="Gray"
+                SeparatorColor="Blue"
                 RowHeight="90"
                 HasUnevenRows="True"
                 SelectionMode="None"
@@ -29,34 +33,38 @@
                             <Label  
                             Text="Ürün Listesi" 
                             FontSize="Large" 
-                            TextColor="White" 
+                            TextColor="Black" 
                             FontFamily="monospace" 
                             FontAttributes="Bold" 
                             HorizontalOptions="FillAndExpand" 
-                            BackgroundColor="Black"
+                            BackgroundColor="White"
                             HorizontalTextAlignment="Center">
                             </Label>
                         </StackLayout>
                     </ListView.Header>
                     <ListView.ItemTemplate>
                         <DataTemplate>
+                            <!--<ImageCell ImageSource="https://static.javatpoint.com/fullformpages/images/imdb.png" Text="Ürün Adı" Detail="Ürün Barkodu"></ImageCell>-->
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                <StackLayout Orientation="Horizontal" Spacing="10" BackgroundColor="AliceBlue">
                                     <Image Source="{Binding ProductImageUrl}" WidthRequest="120" Aspect="AspectFit"></Image>
                                     <StackLayout Padding="10" VerticalOptions="Center">
-                                        <Label Text="{Binding ProductBarcode, StringFormat='Ürün Barkodu : {0:0-000000-000000}'}"></Label>
-                                        <Label Text="{Binding ProductName, StringFormat='Ürün Adı : {0}'}"></Label>
-                                        <Label Text="{Binding MarketName, StringFormat='Market Adı : {0}'}"></Label>
-                                        <Label Text="{Binding ProductPrice, StringFormat='Ürün Fiyatı : {0} ₺'}"></Label>
-                                        <Label Text="{Binding PriceAddedDate , StringFormat='Ürünün Eklendiği Tarih : {0: MM/dd/yyyy HH:mm:ss tt}'}"></Label>
+                                        <Label Text="{Binding ProductBarcode, StringFormat='Ürün Barkodu : {0:0-000000-000000}'}" TextColor="Black"></Label>
+                                        <Label Text="{Binding ProductName, StringFormat='Ürün Adı : {0}'}" TextColor="Black"></Label>
+                                        <Label Text="{Binding MarketName, StringFormat='Market Adı : {0}'}" TextColor="Black"></Label>
+                                        <Label Text="{Binding ProductPrice, StringFormat='Ürün Fiyatı : {0}'}" TextColor="Black"></Label>
+                                        <Label Text="{Binding PriceAddedDate , StringFormat='Ürünün Eklendiği Tarih : {0: MM/dd/yyyy HH:mm:ss tt}'}" TextColor="Black"></Label>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
+
             </StackLayout>
         </ScrollView>
+
     </ContentPage.Content>
 
 </ContentPage>

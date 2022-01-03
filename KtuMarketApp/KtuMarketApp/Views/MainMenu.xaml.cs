@@ -23,7 +23,7 @@ namespace KtuMarketApp.Views
 
             this.Children.Add(new UserProfile(person)
             {
-                IconImageSource = "https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1640894715~hmac=ee2a03636d8e8b56f9ac60dd6ca637c2",
+                IconImageSource = "https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png",
             });
             this.Children.Add(new AddProduct(person)
             {
@@ -35,7 +35,7 @@ namespace KtuMarketApp.Views
             });
             this.Children.Add(new FavouritesProduct(person.PersonName)
             {
-                IconImageSource = "https://cdn-icons-png.flaticon.com/512/54/54481.png"
+                IconImageSource = "https://img.icons8.com/ios/2x/star.png"
             });
         }
     }

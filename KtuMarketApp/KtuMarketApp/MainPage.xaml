@@ -3,45 +3,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.MainPage">
 
-    <StackLayout VerticalOptions="FillAndExpand">
-        <Grid RowSpacing="30" BackgroundColor="Aqua" VerticalOptions="CenterAndExpand" Padding="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-            </Grid.RowDefinitions>
+    <ScrollView>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
 
-            <!-- Logo -->
-            <StackLayout BackgroundColor="Bisque" Grid.ColumnSpan="2">
-                <Image Source="https://www.ktu.edu.tr/images/KTU-Logo-3A.png"></Image>
+            <!--  Ktü Logo -->
+            <StackLayout  Grid.ColumnSpan="2">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/ktu%20logo.png?raw=true" WidthRequest="300"></Image>
             </StackLayout>
 
-            <!-- Login Form -->
-            <StackLayout Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2" BackgroundColor="DarkSeaGreen">
-                <Label Text="Kullanıcı Adı" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Title"></Label>
-                <Entry x:Name="NameEntry" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
+            <!--  Resim -->
+            <StackLayout  >
+                <Image Source="https://github.com/Berkancelik/images/blob/main/login.png?raw=true" WidthRequest="300" HeightRequest="250"></Image>
+            </StackLayout>
 
-                <Label Text="Şifre" HorizontalOptions="Center"  FontAttributes="Bold" FontSize="Title"></Label>
-                <Entry x:Name="PasswordEntry" IsPassword="True" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Entry>
 
-                <!-- Buttons -->
-                <StackLayout>
-                    <Button Text="Giriş Yap" CornerRadius="25" Clicked="SignInClicked"></Button>
-                    <Button Text="Kayıt Ol" CornerRadius="25" Clicked="SignUpClicked"></Button>
+
+            <!--Grid -->
+            <Grid RowSpacing="30" VerticalOptions="CenterAndExpand" Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+
+                <!--  Kullanıcı Adı Label/Entry/Image ,  Şifre Label/Image/Entry -->
+                <StackLayout Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2" >
+
+                    <Label Text="Kullanıcı Adı" TextColor="Black"  HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+                    <StackLayout Orientation="Horizontal"  BackgroundColor="AliceBlue">
+                        <Image Source="https://github.com/Berkancelik/images/blob/main/User_icon_BLACK-01.png?raw=true" WidthRequest="40"></Image>
+                        <Entry x:Name="NameEntry" Placeholder="Kullanıcı Adı Giriniz" PlaceholderColor="Black" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>
+                    </StackLayout>
+
+                    <Label Text="Şifre" HorizontalOptions="Center"  TextColor="Black" FontAttributes="Bold" FontSize="Medium"></Label>
+                    <StackLayout Orientation="Horizontal"  BackgroundColor="AliceBlue">
+                        <Image Source="https://github.com/Berkancelik/images/blob/main/iconmonstr-lock-3-48.png?raw=true" WidthRequest="40"></Image>
+                        <Entry Placeholder="Parola Giriniz" TextColor="Black" PlaceholderColor="Black" IsPassword="True" x:Name="PasswordEntry" HorizontalOptions="FillAndExpand"></Entry>
+                    </StackLayout>
+
+
+
+
+                    <!-- GirişYap Buton, Kayıt Ol Buton -->
+                    <StackLayout>
+                        <Button Text="Giriş Yap" TextColor="White" FontAttributes="Bold"  FontSize="Medium"  CornerRadius="25" Clicked="SignInClicked" BackgroundColor="Navy"></Button>
+                        <Button Text="Kayıt Ol" CornerRadius="25" FontSize="Medium" TextColor="White" FontAttributes="Bold"    Clicked="SignUpClicked" BackgroundColor="Navy"></Button>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
 
-            <!-- Promotion Pages -->
-            <StackLayout Grid.Row="2" Grid.ColumnSpan="2">
-                <Button Text="Tanıtım Sayfaları" CornerRadius="25" Clicked="GoToPromotions"></Button>
-            </StackLayout>
-        </Grid>
+                <!-- Tanıtım Sayfaları Buton -->
+                <StackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                    <Button  Text="Tanıtım Sayfaları" TextColor="White" FontAttributes="Bold"  CornerRadius="25" FontSize="Medium"  Clicked="GoToPromotions" BackgroundColor="Navy"></Button>
+                </StackLayout>
 
-    </StackLayout>
+            </Grid>
+
+        </StackLayout>
+
+    </ScrollView>
 
 </ContentPage>

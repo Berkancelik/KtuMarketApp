@@ -29,7 +29,7 @@ namespace KtuMarketApp.Views.Product
         private async void listview_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Models.Product selectedItem = e.Item as Models.Product;
-            await Navigation.PushAsync(new ProductDetail(selectedItem));
+            await Navigation.PushAsync(new ProductDetail(selectedItem, _person.PersonName));
         }
 
 

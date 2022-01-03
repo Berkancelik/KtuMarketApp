@@ -2,28 +2,52 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KtuMarketApp.Views.Profile.UserProfile"
-             NavigationPage.HasNavigationBar="False">
-
-
+             NavigationPage.HasNavigationBar="False"
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Vertical" x:Name="UserProfileContainer" Padding="20">
+
+        <ScrollView>
+            <StackLayout Orientation="Vertical" x:Name="UserProfileContainer" Padding="20" BackgroundColor="White">
 
                 <!-- Kullanıcı Profili -->
                 <StackLayout>
                     <Image Source="{Binding UserPhotoUrl}" HeightRequest="100"></Image>
                 </StackLayout>
 
-                <Label Text="{Binding PersonName, StringFormat='@{0}'}" BackgroundColor="Bisque" HorizontalTextAlignment="Center" FontSize="30"></Label>
+                <!--Kullanıcı Adı-->
+                <Label Text="{Binding PersonName, StringFormat='@{0}'}"  HorizontalTextAlignment="Center" FontSize="30" TextColor="Black"></Label>
 
-                <Entry x:Name="NewPasswordEntry" Placeholder="Yeni Şifre"></Entry>
-                <Button Text="Şifre Değiştir" Clicked="UpdatePerson"></Button>
-                <Button Text="Hesabı Sil" Clicked="DeletePerson"></Button>
+
+                <!--Yen şifre Text, İconImage, Yeni Şifre Entry, -->
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Label Text="Yeni şifre" TextColor="Black"  HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="AliceBlue">
+                        <Image Source="https://github.com/Berkancelik/images/blob/main/Ads%C4%B1z%20tasar%C4%B1m%20(3).png?raw=true" WidthRequest="40"></Image>
+                        <Entry x:Name="NewPasswordEntry" Placeholder="Yeni Şifre Giriniz" PlaceholderColor="Black" TextColor="Black" IsPassword="True" HorizontalOptions="FillAndExpand"></Entry>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <!--Şifre Değiştir buton-->
+
+                <StackLayout>
+                    <Button Text="Şifre Değiştir" CornerRadius="25" TextColor="White" FontAttributes="Bold" FontSize="Medium"   Clicked="UpdatePerson" BackgroundColor="Navy"></Button>
+                </StackLayout>
+
+                <!--Hesap Sil Buton-->
+
+                <StackLayout>
+                    <Button Text="Hesabı Sil" TextColor="White" FontAttributes="Bold"  CornerRadius="25" FontSize="Medium"   Clicked="DeletePerson" BackgroundColor="Red"></Button>
+                </StackLayout>
+
+                <!--Görsel Image-->
+                <StackLayout  >
+                    <Image Source="https://github.com/Berkancelik/images/blob/main/parola_changes.png?raw=true" WidthRequest="400" HeightRequest="350"></Image>
+                </StackLayout>
+
+
 
             </StackLayout>
-
-
-            
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

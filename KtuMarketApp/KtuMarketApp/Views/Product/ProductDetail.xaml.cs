@@ -17,13 +17,14 @@ namespace KtuMarketApp.Views.Product
 
         Models.Product _product = new Models.Product();
 
+        private string _username;
 
-        public ProductDetail(Models.Product product)
+        public ProductDetail(Models.Product product, string username)
         {
             InitializeComponent();
             _product = product;
             BindingContext = _product;
-
+            _username = username;
         }
 
         // Kullanıcının Takip Etmek İstediği Ürün Listesine Ekler
@@ -32,7 +33,7 @@ namespace KtuMarketApp.Views.Product
             Button btn = sender as Button;
             Models.Product product = btn.CommandParameter as Models.Product;
 
-            await firebaseHelper.AddFavouriteProduct(product);
+            await firebaseHelper.AddFavouriteProduct(product, _username);
 
             await DisplayAlert("Ürün Takip Listesine Eklendi", $"{product.ProductName} ürünü takip listesine eklendi.", "Tamam");
 

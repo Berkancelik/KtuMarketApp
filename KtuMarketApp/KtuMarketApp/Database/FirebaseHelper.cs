@@ -77,7 +77,7 @@ namespace KtuMarketApp.Database
         }
 
         // Kullanıcının Ürününü Takip Listesine Ekler
-        public async Task AddFavouriteProduct(Product product)
+        public async Task AddFavouriteProduct(Product product, string username)
         {
             await firebase.Child("Favourites").PostAsync(new Product()
             {
@@ -85,7 +85,7 @@ namespace KtuMarketApp.Database
                 ProductName = product.ProductName,
                 ProductImageUrl = product.ProductImageUrl,
                 PriceAddedDate = product.PriceAddedDate,
-                PersonName = product.PersonName,
+                PersonName = username,
                 MarketName = product.MarketName,
                 ProductPrice = product.ProductPrice
             });

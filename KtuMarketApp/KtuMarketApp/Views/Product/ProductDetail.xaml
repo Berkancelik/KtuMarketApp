@@ -4,32 +4,76 @@
              x:Class="KtuMarketApp.Views.Product.ProductDetail"
              IconImageSource="">
     <ContentPage.Content>
+        <ScrollView>
 
-        <StackLayout Padding="20" Spacing="15" Orientation="Vertical">
-            <Label Text="Ürün Detay" HorizontalTextAlignment="Center" FontSize="Title"></Label>
-            <StackLayout>
-                <!-- Photo Container -->
-                <StackLayout>
-                    <Image Source="{Binding ProductImageUrl}" Aspect="AspectFit"  WidthRequest="150"></Image>
+
+
+            <StackLayout Padding="20" Spacing="15" Orientation="Vertical" BackgroundColor="White" >
+                <StackLayout  Grid.ColumnSpan="2">
+                    <Image Source="https://github.com/Berkancelik/images/blob/main/ktu%20logo.png?raw=true" WidthRequest="300"></Image>
                 </StackLayout>
 
-                <!-- Text Container -->
-                <StackLayout Spacing="20" HorizontalOptions="Center" BackgroundColor="Yellow">
-                    <Label Text="{Binding ProductBarcode , StringFormat='Ürünün Barkodu : {0}'}"></Label>
-                    <Label Text="{Binding ProductName , StringFormat='Ürünün Adı : {0}'}"></Label>
-                    <Label Text="{Binding PriceAddedDate , StringFormat='Ürünün Eklendiği Tarih : {0: MM/dd/yyyy HH:mm:ss tt}'}"></Label>
-                    <Label Text="{Binding PersonName , StringFormat='Ürünü Ekleyen Kişi : @{0}'}"></Label>
-                    <Label Text="{Binding MarketName , StringFormat='Ürünün Bulunduğu Market : {0}'}"></Label>
-                    <Label Text="{Binding ProductPrice , StringFormat='Ürünün Fiyatı : {0}'}"></Label>
+                <Label Text="Ürün Detay" HorizontalTextAlignment="Center" FontSize="Title" TextColor="Black" FontAttributes="Bold" ></Label>
+                <StackLayout>
+                    <!-- Photo Container -->
+                    <StackLayout>
+                        <Image Source="{Binding ProductImageUrl}" Aspect="AspectFit"  WidthRequest="150"></Image>
+                    </StackLayout>
+
+                    <!-- Text Container -->
+                    <StackLayout Spacing="20" HorizontalOptions="Center" BackgroundColor="AliceBlue" Orientation="Vertical" >
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/barkod.png?raw=true" WidthRequest="30"></Image>
+                            <Label Text="Ürün Barkod No :" TextColor="Black"  FontSize="Small" FontAttributes="Bold" ></Label>
+                            <Label Text="{Binding ProductBarcode }" TextDecorations="Underline" TextColor="Black" ></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/%C3%BCr%C3%BCn.png?raw=true" WidthRequest="30"></Image>
+                            <Label Text="Ürün Adı :" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                            <Label Text="{Binding ProductName , StringFormat='{0}'}" TextColor="Black" TextDecorations="Underline"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/takvim.png?raw=true" WidthRequest="30"></Image>
+                            <Label Text="Ürün Ekleme Tarihi:" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                            <Label Text="{Binding PriceAddedDate , StringFormat='{0: MM/dd/yyyy HH:mm:ss }'}" TextColor="Black" TextDecorations="Underline"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/User_icon_BLACK-01.png?raw=true" WidthRequest="30"></Image>
+                            <Label Text="Ürünü Ekleyen Kullanıcı:" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                            <Label Text="{Binding PersonName , StringFormat='@{0}'}" TextColor="Black" TextDecorations="Underline"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/firma.png?raw=true" WidthRequest="30"></Image>
+                            <Label Text="Market Adı:" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                            <Label Text="{Binding MarketName , StringFormat='{0}'}" TextColor="Black" TextDecorations="Underline"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://github.com/Berkancelik/images/blob/main/tl.png?raw=true" WidthRequest="30"></Image>
+                            <Label Text="Ürün Fiyatı :" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+                            <Label Text="{Binding ProductPrice , StringFormat='{0} ₺'}" TextColor="Black" TextDecorations="Underline"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
                     <!-- Add Favourite -->
+
+                
+
                     <Button
                         Clicked="AddFavourite_Clicked"
-                        Text="Ürünü Takip Listesine Ekle" 
-                        BackgroundColor="DarkSeaGreen"
+                        Text="Ürünü Takip Listesine Ekle"  CornerRadius="25" FontSize="Medium" TextColor="Black"   BackgroundColor="GreenYellow"
                         CommandParameter="{Binding .}">
                     </Button>
+
                 </StackLayout>
             </StackLayout>
-        </StackLayout>
+
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>

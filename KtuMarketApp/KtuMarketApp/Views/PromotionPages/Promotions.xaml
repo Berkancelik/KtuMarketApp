@@ -3,19 +3,151 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
               x:Class="KtuMarketApp.Views.PromotionPages.Promotions">
 
+
+
+    <!--Geliştirme Amacı -->
     <ContentPage>
-        <Label Text="Page 1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/geli%C5%9Ftirme.png?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Geliştirme Amacı " TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <Label Text=" - Uygulamanın geliştirilme amacı; kullanıcı kendi kişisel hesabı ile ürün ekleyebilir ve bu ürünlerin takibini yapabilir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kullanıcı bu takip sayesinde ürünlerin fiyat bilgisi ve değiştirilme durumunda bilgilere ulaşabilir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kullanıcı istediği zaman şifresini değişir ya da hesabını tamamen silebilir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>                   
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    
+    <!--Ana Sayfa-->
+    <ContentPage>
+        <ScrollView>
+        <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+            <Image Source="https://github.com/Berkancelik/images/blob/main/giris.jpg?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Ana Sayfa" TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <Label Text=" - Ana Sayfa ilk kullanıcı adı ve girişi ile birlikte giriş yapılabilir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kullanıcı kaydı yok ise 'Kayıt Ol' butonuna tıklanır ve kayıt ol sayfası açılır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Uygulamanın tanıtımını öğrenmek için 'Tanıtım Sayfaları' butonuna basılır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Ana Sayfa da ilk kullanıcı adı ve girişi ile birlikte giriş yapılabilir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage>
 
+    <!--Kayıt Ol-->
     <ContentPage>
-        <Label Text="Page 2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+        <ScrollView>
+            
+            <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/giris.jpg?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Kayıt Ol" TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <Label Text=" - Kullanıcının hesabı yok ise kullanıcı kendisine bu sayfadan kayıt açabilir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Hesap açmak için kullanıcı adı ve parola girmesi gerekir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kişi ister ise profil fotoğrafı için resim çekebilir ya da galeriden resim yükleyebilir. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>                   
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage>
 
+
+    <!--User Profile-->
     <ContentPage>
-        <Label Text="Page 3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/giris.jpg?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Kullanıcı Sayfası" TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <Label Text=" - Kullanıcı safasından kişi hesabının şifresini değişebilir ya da silebilir.
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kullanıcı şifresinin değiştirmek için yeni şifre bilgisini girdikten sonra 'Şifre Değiştir' butonuna basması yeterlidir .
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Hesabı silmek için ise 'Hesabı Sil' butonuna tıklaması yeterli olacaktır.
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage>
 
+    <!--Ürün ekleme-->
     <ContentPage>
-        <Label Text="Page 4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/giris.jpg?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Ürün Ekle" TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <Label Text=" - Kişi ürün eklemek için bu sayfaya gelmeli ve gerekli alanları doldurmalıdır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Bu alanlar 'Kamera ile resim', 'Ürün Adı', 'Barkod No', Ürün Fiyatı', 'Market Adı'. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Ürünü yüklemek için 'Ürün Ekle' butonuna tıklanması yeterli olacaktır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>                   
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <!--Ürün Ara-->
+    <ContentPage>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/giris.jpg?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Ürün Ara" TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <Label Text=" - Ürün arama sayfasında ürün, hem isim ile hemde barkod taratılarak okutulur. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kişinin ürünü aratması için ürnünün ilk 3 harfini yazması yeterli olacaktır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kişi barkod ile okutmak ister ise, barkod butonuna tıklar ve ürünün barkodunu okutur. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>                  
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <!--Ürün Detay-->
+    <ContentPage>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/giris.jpg?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Ürün Detay" TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                   
+                    <Label Text=" - Kişi herhangi bir ürüne tıkladığında ürünün detayları görünür.. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Eğer Ürünü takip etmek ister ise 'Ürün Takip Listesine Ekle' butonuna basması yeterli olacaktır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>                 
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <!--Ürün Takip Listesi-->
+    <ContentPage>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" HorizontalOptions="Center">
+                <Image Source="https://github.com/Berkancelik/images/blob/main/giris.jpg?raw=true" HeightRequest="500" WidthRequest="600" BackgroundColor="AliceBlue"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+                    <Label Text="Ürün Takip Listesi" TextColor="Black" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                    <Label Text=" - Ürün takip listesinde takibe alınan ürünün; görseli, adı, eklenme tarihi, market adı ve fiyatı çıkmaktadır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>
+                    <Label Text=" - Kişi takibe alınan ürünü takipten çıkarmak için ürünün olduğu alana basılı tutması ve ardından 'sil' butonuna basması yeterli olacaktır. 
+                           " TextColor="Black" FontSize="Small" FontAttributes="Italic"  ></Label>                  
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage>
 </CarouselPage>
